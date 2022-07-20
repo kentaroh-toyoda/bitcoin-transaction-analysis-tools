@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  blocksci:
+    container_name: blocksci
+    build:
+      context: docker
+      args:
+        UNAME: jovyan
+        UID: 1000
+        GID: 1000
+    environment:
+      MAX_BLOCK: -6
+    volumes:
+      - ./.bitcoin:/home/jovyan/.bitcoin:ro
+      - ./blocksci-output:/home/jovyan/blocksci-output

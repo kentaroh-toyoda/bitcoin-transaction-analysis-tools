@@ -1,0 +1,16 @@
+version: "2"
+services:
+  jupyter:
+    build:
+      context: docker
+    ports:
+      - "8080:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/notebooks
+      - ./blocksci-output:/home/jovyan/blocksci-output
+      - ./.bitcoin:/home/jovyan/.bitcoin:ro
+      - ./.jupyter:/home/jovyan/.jupyter
+    command:
+      - --port=8888
+      - --no-browser
+      - --ip=0.0.0.0

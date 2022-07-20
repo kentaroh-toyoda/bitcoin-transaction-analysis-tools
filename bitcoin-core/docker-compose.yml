@@ -1,0 +1,7 @@
+version: "2"
+services:
+  bitcoin-core:
+    container_name: bitcoin-core
+    image: lncm/bitcoind:v22.0
+    volumes:
+      - .bitcoin:/data/.bitcoin
