@@ -4,7 +4,12 @@ FROM jupyter/scipy-notebook:lab-3.4.3
 USER jovyan
 WORKDIR /home/jovyan
 COPY ./config.json .
-RUN pip3 install multiprocess psutil pycrypto requests dateparser
+RUN conda install -c conda-forge multiprocess
+RUN conda install -c conda-forge psutil
+RUN conda install -c conda-forge pycrypto
+RUN conda install -c conda-forge requests
+RUN conda install -c conda-forge dateparser
+RUN conda install conda-build
 
 # setup for blocksci
 USER root
